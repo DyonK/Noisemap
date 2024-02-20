@@ -142,11 +142,11 @@ def main():
     
     parser = argparse.ArgumentParser()
     parser.add_argument('--ImageSize',         default = 3000,      type=int)
-    parser.add_argument('--CreateSettings',    default = False,     type=bool)
+    parser.add_argument('--CreateSettings',    default = True,     type=bool)
     parser.add_argument('--Seed',              default = -1,       type=int)
     args = parser.parse_args()
     
-    GenPath = '../Settings.json'
+    GenPath = 'Settings.json'
     GenSettings = Settings(GenPath,args.CreateSettings)
 
     if(GenSettings.Initialized == True):
@@ -157,7 +157,7 @@ def main():
         img = Image.fromarray(color_world.astype(np.uint8))
         img.show()
 
-        img.save('../GeneratedMap.PNG')
+        img.save('GeneratedMap.PNG')
         print('-- COMPLETED MAP GENERATION --')
         
     else:
